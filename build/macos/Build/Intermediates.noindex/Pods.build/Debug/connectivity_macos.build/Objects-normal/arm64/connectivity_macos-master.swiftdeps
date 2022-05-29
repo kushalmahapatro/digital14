@@ -1,6 +1,0 @@
-version: "Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)"
-options: "f1520151a044126e55c4f947320aaadc7e88a297585986521e504a34340797d5"
-build_start_time: [1653822536, 765229940]
-build_end_time: [1653822537, 393036842]
-inputs:
-  "/Users/kushalmahapatro/.pub-cache/hosted/pub.dartlang.org/connectivity_macos-0.2.1+2/macos/Classes/ConnectivityPlugin.swift": [1653819203, 971188068]
