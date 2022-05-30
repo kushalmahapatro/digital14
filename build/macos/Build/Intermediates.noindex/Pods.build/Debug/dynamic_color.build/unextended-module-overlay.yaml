@@ -1,0 +1,14 @@
+{
+  'version': 0,
+  'use-external-names': 'false',
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/kushalmahapatro/Documents/App/digital14/build/macos/Build/Products/Debug/dynamic_color/dynamic_color.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/kushalmahapatro/Documents/App/digital14/build/macos/Build/Intermediates.noindex/Pods.build/Debug/dynamic_color.build/unextended-module.modulemap",
+    }]
+  }]
+}
