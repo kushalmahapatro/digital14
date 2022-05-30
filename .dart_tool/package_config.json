@@ -32,12 +32,6 @@
       "languageVersion": "2.15"
     },
     {
-      "name": "animations",
-      "rootUri": "file:///Users/kushalmahapatro/Documents/sdk/fvm-cache/versions/flutter-3.0.0/.pub-cache/hosted/pub.dartlang.org/animations-2.0.3",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "args",
       "rootUri": "file:///Users/kushalmahapatro/Documents/sdk/fvm-cache/versions/flutter-3.0.0/.pub-cache/hosted/pub.dartlang.org/args-2.3.1",
       "packageUri": "lib/",
@@ -236,6 +230,24 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "firebase_core",
+      "rootUri": "file:///Users/kushalmahapatro/Documents/sdk/fvm-cache/versions/flutter-3.0.0/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "firebase_core_platform_interface",
+      "rootUri": "file:///Users/kushalmahapatro/Documents/sdk/fvm-cache/versions/flutter-3.0.0/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "firebase_core_web",
+      "rootUri": "file:///Users/kushalmahapatro/Documents/sdk/fvm-cache/versions/flutter-3.0.0/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
       "name": "fixnum",
       "rootUri": "file:///Users/kushalmahapatro/Documents/sdk/fvm-cache/versions/flutter-3.0.0/.pub-cache/hosted/pub.dartlang.org/fixnum-1.0.1",
       "packageUri": "lib/",
@@ -276,18 +288,6 @@
       "rootUri": "file:///Users/kushalmahapatro/Documents/sdk/fvm-cache/versions/flutter-3.0.0/packages/flutter_web_plugins",
       "packageUri": "lib/",
       "languageVersion": "2.17"
-    },
-    {
-      "name": "freezed",
-      "rootUri": "file:///Users/kushalmahapatro/Documents/sdk/fvm-cache/versions/flutter-3.0.0/.pub-cache/hosted/pub.dartlang.org/freezed-2.0.3+1",
-      "packageUri": "lib/",
-      "languageVersion": "2.14"
-    },
-    {
-      "name": "freezed_annotation",
-      "rootUri": "file:///Users/kushalmahapatro/Documents/sdk/fvm-cache/versions/flutter-3.0.0/.pub-cache/hosted/pub.dartlang.org/freezed_annotation-2.0.3",
-      "packageUri": "lib/",
-      "languageVersion": "2.14"
     },
     {
       "name": "frontend_server_client",
@@ -578,12 +578,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "source_gen",
-      "rootUri": "file:///Users/kushalmahapatro/Documents/sdk/fvm-cache/versions/flutter-3.0.0/.pub-cache/hosted/pub.dartlang.org/source_gen-1.2.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "source_span",
       "rootUri": "file:///Users/kushalmahapatro/Documents/sdk/fvm-cache/versions/flutter-3.0.0/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.2",
       "packageUri": "lib/",
@@ -692,7 +686,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-05-30T09:19:04.315765Z",
+  "generated": "2022-05-30T23:26:39.969614Z",
   "generator": "pub",
   "generatorVersion": "2.17.0"
 }

@@ -9,7 +9,7 @@ packages:
     source: hosted
     version: "40.0.0"
   adaptive_breakpoints:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: adaptive_breakpoints
       url: "https://pub.dartlang.org"
@@ -36,13 +36,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.1.0"
-  animations:
-    dependency: "direct main"
-    description:
-      name: animations
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.3"
   args:
     dependency: transitive
     description:
@@ -156,7 +149,7 @@ packages:
     source: hosted
     version: "4.1.0"
   collection:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: collection
       url: "https://pub.dartlang.org"
@@ -338,20 +331,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  freezed:
-    dependency: "direct dev"
-    description:
-      name: freezed
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.3+1"
-  freezed_annotation:
-    dependency: "direct main"
-    description:
-      name: freezed_annotation
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.3"
   frontend_server_client:
     dependency: transitive
     description:
@@ -395,7 +374,7 @@ packages:
     source: hosted
     version: "1.0.4"
   http:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: http
       url: "https://pub.dartlang.org"
@@ -686,13 +665,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
-  source_gen:
-    dependency: transitive
-    description:
-      name: source_gen
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.2.2"
   source_span:
     dependency: transitive
     description:

@@ -1,8 +1,7 @@
-import 'package:digital14/main.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import '../features/event_details/event_details.dart';
+import 'package:digital14/features/event_details/event_details.dart';
+import 'package:digital14/pages/pages.dart';
 
 // final artistsProvider = ArtistsProvider();
 // final playlistsProvider = PlaylistsProvider();
