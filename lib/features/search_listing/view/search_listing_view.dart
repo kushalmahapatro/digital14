@@ -1,5 +1,5 @@
 import 'package:digital14/digital14.dart';
-import 'package:digital14/features/events/events.dart';
+import 'package:digital14/features/events_listing/events_listing.dart';
 import 'package:digital14/features/search/search.dart';
 
 final seachProvider = StateProvider<String>((ref) => '');

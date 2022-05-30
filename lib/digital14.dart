@@ -4,11 +4,13 @@ export 'package:flutter/material.dart';
 export 'package:flutter/foundation.dart';
 export 'package:flutter/services.dart';
 export 'dart:io';
+export 'dart:async';
+
 export 'dart:convert';
 export 'package:intl/intl.dart' hide TextDirection;
 
 export 'package:google_fonts/google_fonts.dart';
-export 'package:hooks_riverpod/hooks_riverpod.dart';
+export 'package:hooks_riverpod/hooks_riverpod.dart' hide AsyncError;
 // ignore: depend_on_referenced_packages
 export 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -19,6 +21,9 @@ export 'package:adaptive_components/adaptive_components.dart';
 
 export 'package:digital14/shared/extensions.dart';
 export 'package:digital14/rest_services/reset_service_response.dart';
+export 'package:digital14/rest_services/rest_service.dart';
 
-Set<String> favIds = <String>{};
+export 'package:firebase_core/firebase_core.dart';
+
+
 SharedPreferences? prefs;

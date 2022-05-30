@@ -1,4 +1,5 @@
 import 'package:digital14/digital14.dart';
+import 'package:digital14/features/events_listing/events_listing.dart';
 import 'package:digital14/features/search_listing/search_listing.dart';
 
 class SearchView extends StatefulHookConsumerWidget {
@@ -16,16 +17,20 @@ class _SearchViewState extends ConsumerState<SearchView> {
     if (ref.read(seachProvider).isNotEmpty) {
       controller.text = ref.read(seachProvider);
     }
+
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    bool bottomPadding = kIsWeb
-        ? true
-        : Platform.isMacOS
-            ? true
-            : false;
+    bool bottomPadding = false;
+    
+    if (kIsWeb) {
+      bottomPadding = true;
+    } else if (Platform.isMacOS) {
+      bottomPadding = true;
+    }
+
     return Row(
       mainAxisSize: MainAxisSize.max,
       children: [
@@ -38,35 +43,9 @@ class _SearchViewState extends ConsumerState<SearchView> {
                   borderRadius: BorderRadius.circular(5)),
               height: 30,
               alignment: Alignment.center,
-              child: TextField(
+              child: InputText(
                 controller: controller,
-                onChanged: (value) {
-                  ref.read(seachProvider.notifier).state = value;
-                },
-                cursorHeight: 4,
-                decoration: InputDecoration(
-                  alignLabelWithHint: true,
-                  hintText: "search",
-                  hintStyle: context.bodyLarge
-                      ?.copyWith(color: context.colors.surfaceVariant),
-                  focusedBorder: InputBorder.none,
-                  contentPadding:
-                      EdgeInsets.only(bottom: bottomPadding ? 20 : 15),
-                  suffixIcon: ref.watch(seachProvider).isNotEmpty
-                      ? IconButton(
-                          onPressed: () {
-                            ref.read(seachProvider.notifier).state = '';
-                            controller.text = '';
-                          },
-                          icon: Icon(Icons.cancel,
-                              size: 15, color: context.colors.surface),
-                        )
-                      : null,
-                  prefixIcon: Icon(Icons.search,
-                      size: 20, color: context.colors.surface),
-                ),
-                style:
-                    context.bodyLarge?.copyWith(color: context.colors.surface),
+                bottomPadding: bottomPadding,
               ),
             ),
           ),
@@ -77,5 +56,53 @@ class _SearchViewState extends ConsumerState<SearchView> {
         )
       ],
     );
+  }
+}
+
+class InputText extends ConsumerWidget {
+  const InputText({
+    Key? key,
+    required this.controller,
+    required this.bottomPadding,
+  }) : super(key: key);
+
+  final TextEditingController controller;
+
+  final bool bottomPadding;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen(seachProvider, (_, v) {
+      ref.read(eventsDataProvider.notifier).fetchFirstBatch(v.toString());
+    });
+
+    return TextField(
+        style:
+            context.bodyLarge?.copyWith(color: context.colors.surfaceVariant),
+        controller: controller,
+        onChanged: (value) {
+          ref.read(seachProvider.notifier).state = value;
+        },
+        cursorHeight: 4,
+        decoration: InputDecoration(
+          alignLabelWithHint: true,
+          hintText: "Search for any event",
+          hintStyle: context.bodyLarge
+              ?.copyWith(color: context.colors.surfaceVariant.withOpacity(0.6)),
+          focusedBorder: InputBorder.none,
+          contentPadding: EdgeInsets.only(bottom: bottomPadding ? 20 : 15),
+          suffixIcon: ref.watch(seachProvider).isNotEmpty
+              ? InkWell(
+                  onTap: () {
+                    ref.read(seachProvider.notifier).state = '';
+                    controller.text = '';
+                  },
+                  child: Icon(Icons.cancel,
+                      size: 15, color: context.colors.surface),
+                )
+              : null,
+          prefixIcon:
+              Icon(Icons.search, size: 20, color: context.colors.surface),
+        ));
   }
 }

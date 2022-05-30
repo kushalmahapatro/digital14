@@ -7,7 +7,6 @@ enum ScreenError { noError, internet, unknown }
 
 class RestService {
   Future<bool> _checkConnectivity() async {
-    return true;
     final ConnectivityResult connectivityResult =
         await Connectivity().checkConnectivity();
 

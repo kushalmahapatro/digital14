@@ -1,0 +1,1 @@
+enum FavouriteType { listing, details }
