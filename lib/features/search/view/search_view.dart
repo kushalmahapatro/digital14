@@ -25,7 +25,7 @@ class _SearchViewState extends ConsumerState<SearchView> {
   Widget build(BuildContext context) {
     bool bottomPadding = false;
 
-    if (kIsWeb && (context.size?.width ?? 0) > 600) {
+    if (kIsWeb) {
       bottomPadding = true;
     } else if (Platform.isMacOS) {
       bottomPadding = true;
@@ -45,7 +45,9 @@ class _SearchViewState extends ConsumerState<SearchView> {
               alignment: Alignment.center,
               child: InputText(
                 controller: controller,
-                bottomPadding: bottomPadding,
+                bottomPadding: MediaQuery.of(context).size.width > 600
+                    ? bottomPadding
+                    : false,
               ),
             ),
           ),
