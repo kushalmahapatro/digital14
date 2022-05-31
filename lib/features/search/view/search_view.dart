@@ -1,5 +1,5 @@
 import 'package:digital14/digital14.dart';
-import 'package:digital14/features/events_listing/events_listing.dart';
+import 'package:digital14/features/search/search.dart';
 import 'package:digital14/features/search_listing/search_listing.dart';
 
 class SearchView extends StatefulHookConsumerWidget {
@@ -24,8 +24,8 @@ class _SearchViewState extends ConsumerState<SearchView> {
   @override
   Widget build(BuildContext context) {
     bool bottomPadding = false;
-    
-    if (kIsWeb) {
+
+    if (kIsWeb && (context.size?.width ?? 0) > 600) {
       bottomPadding = true;
     } else if (Platform.isMacOS) {
       bottomPadding = true;
@@ -36,7 +36,7 @@ class _SearchViewState extends ConsumerState<SearchView> {
       children: [
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.only(top: 8, bottom: 8, right: 5),
+            padding: const EdgeInsets.only(top: 8, bottom: 8),
             child: Container(
               decoration: BoxDecoration(
                   color: context.colors.primary,
@@ -50,10 +50,13 @@ class _SearchViewState extends ConsumerState<SearchView> {
             ),
           ),
         ),
-        Text(
-          "Cancel",
-          style: context.bodySmall?.copyWith(color: context.colors.surface),
-        )
+
+        /// Cancel button
+
+        // Text(
+        //   "Cancel",
+        //   style: context.bodySmall?.copyWith(color: context.colors.surface),
+        // )
       ],
     );
   }
@@ -72,9 +75,7 @@ class InputText extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen(seachProvider, (_, v) {
-      ref.read(eventsDataProvider.notifier).fetchFirstBatch(v.toString());
-    });
+    searchChangeListener(ref);
 
     return TextField(
         style:
@@ -93,10 +94,7 @@ class InputText extends ConsumerWidget {
           contentPadding: EdgeInsets.only(bottom: bottomPadding ? 20 : 15),
           suffixIcon: ref.watch(seachProvider).isNotEmpty
               ? InkWell(
-                  onTap: () {
-                    ref.read(seachProvider.notifier).state = '';
-                    controller.text = '';
-                  },
+                  onTap: () => SearchInteractor.onClearClick(ref, controller),
                   child: Icon(Icons.cancel,
                       size: 15, color: context.colors.surface),
                 )

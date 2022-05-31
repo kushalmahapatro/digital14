@@ -38,12 +38,12 @@ class ListingItemState extends ConsumerState<EventItem>
             },
             child: InkWell(
               onTap: () {
-                if (widget.navigateToDetails) {
-                  context.pushNamed("details", extra: widget.data);
-                }
-                ref
-                  ..refresh(eventDetailsProvider)
-                  ..read(eventDetailsProvider.notifier).state = widget.data;
+                EventListingInteractor.onItemClick(
+                  context,
+                  ref,
+                  widget.data,
+                  navigateToDetails: widget.navigateToDetails,
+                );
 
                 selected = false;
                 hovered = false;
@@ -102,6 +102,7 @@ class ListingItemState extends ConsumerState<EventItem>
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                /// Name
                                 Text(
                                   widget.data.performers?.name ?? '',
                                   maxLines: 1,
@@ -110,12 +111,16 @@ class ListingItemState extends ConsumerState<EventItem>
                                       .copyWith(fontWeight: FontWeight.bold),
                                 ),
                                 const SizedBox(height: 3),
+
+                                /// Address
                                 Text(
                                   widget.data.venue?.address ?? '',
                                   style: context.bodySmall!
                                       .copyWith(color: context.colors.outline),
                                 ),
                                 const SizedBox(height: 3),
+
+                                /// Time
                                 Text(
                                   widget.data.readableDate ?? '',
                                   style: context.bodySmall!

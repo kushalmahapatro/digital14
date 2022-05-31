@@ -2,8 +2,8 @@ import 'package:digital14/digital14.dart';
 
 Widget favIcon(BuildContext context) {
   return SizedBox(
-      height: 18,
-      width: 18,
+      height: 17,
+      width: 17,
       child: Stack(
         children: [
           const Positioned(
@@ -11,12 +11,12 @@ Widget favIcon(BuildContext context) {
               left: 0,
               child: Icon(
                 Icons.favorite,
-                size: 18,
+                size: 17,
                 color: Colors.white,
               )),
           Positioned(
-              top: 1.5,
-              left: 1.5,
+              top: 1,
+              left: 1,
               child: Icon(
                 Icons.favorite,
                 size: 15,

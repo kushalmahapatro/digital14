@@ -1,4 +1,5 @@
 import 'package:digital14/digital14.dart';
+import 'package:digital14/features/event_details/event_details.dart';
 import 'package:digital14/features/events_listing/events_listing.dart';
 import 'package:digital14/features/favourite/favourite.dart';
 
@@ -14,7 +15,7 @@ class EventDetailsView extends HookConsumerWidget {
     String imageUrl = details?.performers?.images?.huge ?? '';
 
     if (details == null) {
-      return Container();
+      return Container(color: context.colors.surface);
     }
 
     return Scaffold(
@@ -41,24 +42,22 @@ class EventDetailsView extends HookConsumerWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const SizedBox(height: 15),
+
+                        /// Image Widget
                         ClipRRect(
                             borderRadius: BorderRadius.circular(6),
-                            child: imageUrl.isNotEmpty
-                                ? Image.network(
-                                    details.performers?.images?.huge ?? '',
-                                    width: double.maxFinite,
-                                    fit: BoxFit.fitHeight,
-                                  )
-                                : const SizedBox(
-                                    width: double.maxFinite,
-                                  )),
+                            child: imageWidget(imageUrl, details)),
                         const SizedBox(height: 10),
+
+                        /// Heading
                         Text(
                           details.readableDate ?? '',
                           style: context.headlineSmall!
                               .copyWith(fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 10),
+
+                        /// Address
                         Text(
                           details.venue?.address ?? '',
                           style: context.titleSmall!
@@ -72,6 +71,18 @@ class EventDetailsView extends HookConsumerWidget {
         ),
       ),
     );
+  }
+
+  Widget imageWidget(String imageUrl, EventsData details) {
+    return imageUrl.isNotEmpty
+        ? Image.network(
+            details.performers?.images?.huge ?? '',
+            width: double.maxFinite,
+            fit: BoxFit.fitHeight,
+          )
+        : const SizedBox(
+            width: double.maxFinite,
+          );
   }
 }
 
@@ -102,9 +113,7 @@ class DetailsAppBar extends StatelessWidget {
                 size: 30,
               ),
             ),
-            onTap: () {
-              context.pop();
-            },
+            onTap: () => EventDetailsInteractor.onBackClick(context),
           ),
         ),
         Expanded(
