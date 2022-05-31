@@ -15,11 +15,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       if (constraints.isMobile) {
-        return const SafeArea(
-            child: SearchListingView(navigateToDetails: true));
+        return const SearchListingView(navigateToDetails: true);
       } else if (constraints.isTablet) {
-        return SafeArea(
-          child: Row(
+        return Scaffold(
+          body: Row(
             children: const <Widget>[
               Flexible(
                 flex: 4,
@@ -30,8 +29,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         );
       } else {
-        return SafeArea(
-          child: Row(
+        return Scaffold(
+          body: Row(
             children: const <Widget>[
               Flexible(
                 flex: 3,

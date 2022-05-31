@@ -19,6 +19,14 @@ class EventDetailsView extends HookConsumerWidget {
     }
 
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 0,
+        backgroundColor: Colors.white,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+          statusBarBrightness: Brightness.light, // For iOS (dark icons)
+        ),
+      ),
       body: SafeArea(
         child: Container(
           padding: const EdgeInsets.all(10),
